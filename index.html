@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="assets/css/style.css">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <div class="container border rounded border-success mt-3 mx-auto gameWin">
+        <div class="row text-center mb-5">
+            <div class="col-12 mb-5">
+                <h1>
+                    Fallout Guessing Game
+                </h1>
+            </div>
+
+            <div class="col-12 my-5">
+                <h2 class="mySpacing" id="word"></h2>
+            </div>
+        </div>
+        <div class="row text-center mt-5">
+            <div class="col-sm-12 col-md-4 text-md-left my-5">
+                <ul>
+                    <li>
+                        <h4 id="won">WON: 0</h4>
+                    </li>
+                    <li>
+                        <h4 id="lost">LOST: 0</h4>
+                    </li>
+                    <li>
+                        <h4 id="guesses">GUESSES: 0 / 10</h4>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-sm-12 col-md-4 text-md-center mb-3">
+                <img src="assets/images/falloutWin.png" width="200px" height="auto" alt="">
+            </div>
+            <div class="col-sm-12 col-md-3 offset-md-1">
+                <h4 class="ltr" id="ltr0">A</h4>
+                <h4 class="ltr" id="ltr1">B</h4>
+                <h4 class="ltr" id="ltr2">C</h4>
+                <h4 class="ltr" id="ltr3">D</h4>
+                <h4 class="ltr" id="ltr4">E</h4>
+                <h4 class="ltr" id="ltr5">F</h4>
+                <h4 class="ltr" id="ltr6">G</h4>
+                <h4 class="ltr" id="ltr7">H</h4>
+                <h4 class="ltr" id="ltr8">I</h4>
+                <h4 class="ltr" id="ltr9">J</h4>
+                <h4 class="ltr" id="ltr10">K</h4>
+                <h4 class="ltr" id="ltr11">L</h4>
+                <h4 class="ltr" id="ltr12">M</h4>
+                <h4 class="ltr" id="ltr13">N</h4>
+                <h4 class="ltr" id="ltr14">O</h4>
+                <h4 class="ltr" id="ltr15">P</h4>
+                <h4 class="ltr" id="ltr16">Q</h4>
+                <h4 class="ltr" id="ltr17">R</h4>
+                <h4 class="ltr" id="ltr18">S</h4>
+                <h4 class="ltr" id="ltr19">T</h4>
+                <h4 class="ltr" id="ltr20">U</h4>
+                <h4 class="ltr" id="ltr21">V</h4>
+                <h4 class="ltr" id="ltr22">W</h4>
+                <h4 class="ltr" id="ltr23">X</h4>
+                <h4 class="ltr" id="ltr24">Y</h4>
+                <h4 class="ltr" id="ltr25">Z</h4>
+
+
+            </div>
+        </div>
+    </div>
+
+    <div class="container mt-1 mx-auto gameWin">
+        <div class="row text-center">
+            <div class="col-12 my-2 mx-auto">
+                Console <input type = "text" class="form-control" name="gameConsole" id="gameConsole">
+            </div>
+
+
+        </div>
+    </div>
+
+    <script src="assets/javascript/game.js"></script>
+
+</body>
+
+</html>

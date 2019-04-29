@@ -1,0 +1,44 @@
+body {
+    font-family: 'Courier New', Courier, monospace;
+    color: #ffffff;
+    background-color: black;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+#ltrA {
+    text-decoration: line-through;
+}
+
+.gameWin {
+    color: rgb(0, 175, 0);
+    background-color: #000000;
+}
+
+.ltr {
+    float: left;
+    margin: 5px;
+}
+
+.mySpacing{
+    letter-spacing: 5px;
+}
+
+
+#gameConsole{
+    border: 1px solid rgb(0, 175, 0);
+    outline: none;
+    resize: none;
+    background-color: #000000;
+    color: rgb(0, 175, 0);
+    font-size: 16px;
+    
+}
+#gameConsole::placeholder{
+    color: rgb(0, 175, 0); 
+}
