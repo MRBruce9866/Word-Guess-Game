@@ -1,7 +1,13 @@
 body {
     font-family: 'Courier New', Courier, monospace;
-    color: #ffffff;
-    background-color: black;
+    color: rgb(0, 175, 0);
+    background-color: #000000;
+}
+
+pre.gameOverFont{
+    font-family: 'Courier New', Courier, monospace;
+    color: rgb(0, 175, 0);
+    font-size: 24px;
 }
 
 ul {
@@ -11,18 +17,16 @@ ul {
     overflow: hidden;
 }
 
-#ltrA {
-    text-decoration: line-through;
-}
-
 .gameWin {
-    color: rgb(0, 175, 0);
-    background-color: #000000;
+    
+    background-color: #001100;
 }
 
 .ltr {
     float: left;
     margin: 5px;
+    border: 1px solid #001100;
+    
 }
 
 .mySpacing{
@@ -30,15 +34,7 @@ ul {
 }
 
 
-#gameConsole{
-    border: 1px solid rgb(0, 175, 0);
-    outline: none;
-    resize: none;
-    background-color: #000000;
-    color: rgb(0, 175, 0);
-    font-size: 16px;
-    
+.fWidth{
+    width: 350px;
 }
-#gameConsole::placeholder{
-    color: rgb(0, 175, 0); 
-}
+

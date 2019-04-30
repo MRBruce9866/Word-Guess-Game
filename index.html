@@ -15,36 +15,46 @@
 
 <body>
 
-    <div class="container border rounded border-success mt-3 mx-auto gameWin">
-        <div class="row text-center mb-5">
+    <div class="container border rounded border-success mt-2 mx-auto gameWin">
+        <div class="row text-center">
             <div class="col-12 mb-5">
-                <h1>
-                    Fallout Guessing Game
+                <h1 class="border rounded border-success mt-2">
+                    FALLOUT GUESSING GAME
                 </h1>
             </div>
-
-            <div class="col-12 my-5">
-                <h2 class="mySpacing" id="word"></h2>
-            </div>
         </div>
-        <div class="row text-center mt-5">
-            <div class="col-sm-12 col-md-4 text-md-left my-5">
+
+        <div class="row text-center">
+            <div class="col-sm-12 col-md-4 my-auto">
                 <ul>
                     <li>
-                        <h4 id="won">WON: 0</h4>
+                        <h5 id="won">WON: 0</h5>
                     </li>
                     <li>
-                        <h4 id="lost">LOST: 0</h4>
+                        <h5 id="lost">LOST: 0</h5>
                     </li>
                     <li>
-                        <h4 id="guesses">GUESSES: 0 / 10</h4>
+                        <h5 id="guesses">GUESSES: 0 / 10</h5>
                     </li>
                 </ul>
             </div>
-            <div class="col-sm-12 col-md-4 text-md-center mb-3">
-                <img src="assets/images/falloutWin.png" width="200px" height="auto" alt="">
+            <div class="col-12 col-md-4 mt-5 ">
+                <h2 class="mySpacing" id="word"></h2>
             </div>
-            <div class="col-sm-12 col-md-3 offset-md-1">
+            <div class="col-12 col-md-4 text-md-center my-3 ">
+                <img src="assets/images/falloutWin.png" width="200px" height="auto" id="falloutImg" alt="FalloutImg">
+            </div>
+        </div>
+
+        <div class="row text-center">
+            <div class="col-12">
+                <pre class="gameOverFont" id="gameOverFont">
+                </pre>
+            </div>
+        </div>
+
+        <div class="row text-center">
+            <div class="fWidth mx-auto">
                 <h4 class="ltr" id="ltr0">A</h4>
                 <h4 class="ltr" id="ltr1">B</h4>
                 <h4 class="ltr" id="ltr2">C</h4>
@@ -75,17 +85,22 @@
 
             </div>
         </div>
+
     </div>
 
-    <div class="container mt-1 mx-auto gameWin">
-        <div class="row text-center">
-            <div class="col-12 my-2 mx-auto">
-                Console <input type = "text" class="form-control" name="gameConsole" id="gameConsole">
+    <div class="container mt-3">
+        <div class="row text-center ">
+            <div class="col-12 mx-auto">
+
+                <h5 id="directions1">ARROW KEYS: Select Letter</h5>
+                <h5 id="directions2">ENTER: Submit</h5>
+
             </div>
-
-
         </div>
     </div>
+
+
+
 
     <script src="assets/javascript/game.js"></script>
 
