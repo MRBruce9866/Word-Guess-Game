@@ -187,7 +187,7 @@ function initializeLetterPointers() {
 }
 
 function setSelectedLetter(index, dir = 1) {
-    selectedLetter.style.setProperty("border", "1px solid rgb(0, 0, 0)");
+    selectedLetter.style.setProperty("border", "1px solid #001100");
 
     if (dir === 1) {
         do {
