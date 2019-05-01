@@ -25,6 +25,8 @@ var game = {
         "Power Fist", "Fat Man", "Minigun", "Grenade", "Molotov Cocktail", "Nuka Grenade", "Combat Shotgun"
     ],
     lettersGuessed: [],
+    images: [],
+    currentImageInd: 0,
     isGameOver: false,
 
     chooseWord: function () {
@@ -74,6 +76,7 @@ var game = {
 
         if (!wasLetterInWord) {
             this.guesses++;
+            this.currentImageInd++;
         }
 
         this.checkWinOrLose();
@@ -89,12 +92,14 @@ var game = {
 
     winGame: function () {
         this.gamesWon++;
+        this.currentImageInd = this.images.length - 2;
         this.gameOver("WON");
 
     },
 
     loseGame: function () {
         this.gamesLost++;
+        this.currentImageInd = this.images.length - 1;
         this.gameOver("LOST");
     },
 
@@ -137,11 +142,26 @@ var game = {
 
     },
 
+    loadImages: function(){
+
+        for (let index = 0; index < 10; index++) {
+            this.images.push("assets/images/fallout" + index + ".png");  
+        }
+
+        this.images.push("assets/images/falloutWin.png");
+        this.images.push("assets/images/falloutLost.png");
+    },
+
 
     initializeGame: function () {
         this.guesses = 0;
         this.lettersGuessed.length = 0;
         this.chooseWord();
+        this.currentImageInd = 0;
+        if(this.images.length === 0){
+            this.loadImages();
+        } 
+
         for (let pI = 0; pI < letterPointers.length; pI++) {
             letterPointers[pI].textContent = String.fromCharCode(pI + 65);
         }
@@ -211,6 +231,7 @@ function refreshScreen() {
     wonPointer.textContent = "GAMES WON: " + game.getGamesWon();
     lostPointer.textContent = "GAMES LOST: " + game.getGamesLost();
     guessPointer.textContent = "GUESSES: " + game.getNumOfGuesses() + " / " + game.getMaxGuesses();
+    imagePointer.setAttribute("src", game.images[game.currentImageInd]);
     wordPointer.textContent = game.getWordMask();
 
     for (let pI = 0; pI < letterPointers.length; pI++) {
