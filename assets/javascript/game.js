@@ -26,8 +26,11 @@ var game = {
     ],
     lettersGuessed: [],
     images: [],
+    audio: [],
     currentImageInd: 0,
     isGameOver: false,
+    
+
 
     chooseWord: function () {
         var index = Math.floor(Math.random() * this.wordBank.length);
@@ -77,6 +80,9 @@ var game = {
         if (!wasLetterInWord) {
             this.guesses++;
             this.currentImageInd++;
+            this.playAudio(1);
+        }else{
+            this.playAudio(2);
         }
 
         this.checkWinOrLose();
@@ -91,6 +97,7 @@ var game = {
     },
 
     winGame: function () {
+        this.playAudio(3);
         this.gamesWon++;
         this.currentImageInd = this.images.length - 2;
         this.gameOver("WON");
@@ -98,6 +105,7 @@ var game = {
     },
 
     loseGame: function () {
+        this.playAudio(4);
         this.gamesLost++;
         this.currentImageInd = this.images.length - 1;
         this.gameOver("LOST");
@@ -152,6 +160,43 @@ var game = {
         this.images.push("assets/images/falloutLost.png");
     },
 
+    loadAudioFiles: function(){
+        var temp;
+
+        temp = new Audio();
+        temp.src = "assets/audio/keyPressed.wav";
+        this.audio.push(temp);
+        temp = new Audio();
+        temp.src = "assets/audio/letterBad.wav";
+        this.audio.push(temp);
+        temp = new Audio();
+        temp.src = "assets/audio/letterGood.wav";
+        this.audio.push(temp);
+        temp = new Audio();
+        temp.src = "assets/audio/won.wav";
+        this.audio.push(temp);
+        temp = new Audio();
+        temp.src = "assets/audio/lost.wav";
+        this.audio.push(temp);
+
+    },
+
+    playAudio: function(sound){
+
+        if(sound >= 0 && sound < this.audio.length){
+            for (let index = 0; index < this.audio.length; index++) {
+                this.audio[index].load();  
+            }
+    
+            this.audio[sound].play();
+        }
+
+        
+
+
+    },
+
+
 
     initializeGame: function () {
         this.guesses = 0;
@@ -160,11 +205,16 @@ var game = {
         this.currentImageInd = 0;
         if(this.images.length === 0){
             this.loadImages();
-        } 
+        }
+
+        if(this.audio.length === 0){
+            this.loadAudioFiles();
+        }
 
         for (let pI = 0; pI < letterPointers.length; pI++) {
             letterPointers[pI].textContent = String.fromCharCode(pI + 65);
         }
+
         setSelectedLetter(0);
         refreshScreen();
     }
@@ -218,10 +268,6 @@ function setSelectedLetter(index, dir = 1) {
     }
 
 
-
-
-
-
     selectedLetter = letterPointers[index];
     selectedLetter.style.setProperty("border", "1px solid rgb(0, 175, 0)");
 }
@@ -256,24 +302,24 @@ document.onkeydown = function (event) {
     if (game.isGameOver) {
 
         if(key === "Enter"){
-
+            game.playAudio(0);
             gameOverPointer.textContent = "";
             game.isGameOver = false;
             game.initializeGame();
+            
             
         }
 
     } else {
         switch (key) {
             case "Enter":
-
-
-
+                
                 game.guess(selectedLetter.textContent)
 
                 break;
 
             case "ArrowLeft":
+                game.playAudio(0);
                 var temp = letterPointers.indexOf(selectedLetter);
                 temp--;
 
@@ -285,6 +331,7 @@ document.onkeydown = function (event) {
                 break;
 
             case "ArrowRight":
+                game.playAudio(0);
                 var temp = letterPointers.indexOf(selectedLetter);
                 temp++;
 
@@ -296,7 +343,7 @@ document.onkeydown = function (event) {
                 break;
 
             case "ArrowUp":
-
+                game.playAudio(0);
                 var temp = letterPointers.indexOf(selectedLetter);
                 temp += 13;
 
@@ -307,6 +354,7 @@ document.onkeydown = function (event) {
                 break;
 
             case "ArrowDown":
+                game.playAudio(0);
                 var temp = letterPointers.indexOf(selectedLetter);
                 temp -= 13;
 
